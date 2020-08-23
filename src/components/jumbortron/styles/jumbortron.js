@@ -25,6 +25,9 @@ export const Inner = styled.div`
 
 export const Container = styled.section`
   background-color: black;
+
+  ${Item}:last-of-type h2 {
+  }
 `;
 
 export const Panel = styled.div`
