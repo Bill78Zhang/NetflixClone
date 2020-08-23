@@ -25,7 +25,7 @@ export const Inner = styled.div`
 
 export const Container = styled.section`
   background-color: black;
-
+  margin: 0 auto;
   ${Item}:last-of-type h2 {
   }
 `;
