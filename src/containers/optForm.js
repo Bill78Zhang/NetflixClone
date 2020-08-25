@@ -1,12 +1,14 @@
 import React from 'react';
-import { OptForm } from '../containers';
+import { OptForm } from '../components';
 
-export default function OptFormContainer() {
+export function OptFormContainer() {
   return (
     <OptForm>
       <OptForm.Input></OptForm.Input>
-      <OptForm.Button></OptForm.Button>
-      <OptForm.Text></OptForm.Text>
+      <OptForm.Button>Try It Now</OptForm.Button>
+      <OptForm.Text>
+        Ready to watch? Enter your email to create or restart your membership
+      </OptForm.Text>
     </OptForm>
   );
 }
