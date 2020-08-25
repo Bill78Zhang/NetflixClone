@@ -11,18 +11,22 @@ export const Inner = styled.div`
   display: flex;
   flex-direction: column;
   padding: 70px 45px;
-  max-width: 850px;
+  width: 100%;
   align-items: center;
   margin: auto;
   @media (max-width: 600px) {
     max-width: 400px;
+  }
+
+  @media (max-width: 1000px) {
+    max-width: 700px;
   }
 `;
 
 export const Frame = styled.div`
   width: 80%;
   max-width: 1200px;
-  margin-bottom: 50px;
+  margin-bottom: auto auto 50px auto;
 `;
 export const Title = styled.h1`
   font-size: 60px;
@@ -37,7 +41,6 @@ export const Title = styled.h1`
 
 export const Header = styled.div`
   display: flex;
-  width: 100%;
   justify-content: space-between;
   color: white;
   align-items: center;
@@ -79,7 +82,6 @@ export const Body = styled.div`
   background-color: #303030;
   color: white;
   align-items: center;
-  width: 100%;
 
   @media (max-width: 600px) {
     font-size: 16px;

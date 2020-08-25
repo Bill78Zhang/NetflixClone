@@ -1,6 +1,6 @@
 import React from 'react';
 import { Header } from '../components';
-import { OptFormContainer } from '../containers/optForm';
+import { FeatureContainer } from '../containers/feature';
 export function HeaderContainer({ children }) {
   return (
     <Header>
@@ -8,7 +8,7 @@ export function HeaderContainer({ children }) {
         <Header.Logo to='/home' src='/images/misc/logo.svg' alt='Netflix' />
         <Header.ButtonLink to='/singin'>Sign In</Header.ButtonLink>
       </Header.Frame>
-      <OptFormContainer />
+      <FeatureContainer />
     </Header>
   );
 }
