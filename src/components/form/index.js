@@ -8,34 +8,39 @@ import {
   Submit,
   Text,
   SmallText,
+  Link,
 } from './styles/form';
 export default function Form({ children, ...restPorps }) {
   return <Container {...restPorps}>{children}</Container>;
 }
 
 Form.Base = function FormBase({ children, ...restPorps }) {
-  <Base {...restPorps}>{children}</Base>;
+  return <Base {...restPorps}>{children}</Base>;
 };
 
 Form.Title = function FormTitle({ children, ...restPorps }) {
-  <Title {...restPorps}>{children}</Title>;
+  return <Title {...restPorps}>{children}</Title>;
 };
 
 Form.Error = function FormError({ children, ...restPorps }) {
-  <Error {...restPorps}>{children}</Error>;
+  return <Error {...restPorps}>{children}</Error>;
 };
 
 Form.Input = function FormInput({ children, ...restPorps }) {
-  <Input {...restPorps}>{children}</Input>;
+  return <Input {...restPorps}>{children}</Input>;
 };
 Form.Submit = function FormSubmit({ children, ...restPorps }) {
-  <Submit {...restPorps}>{children}</Submit>;
+  return <Submit {...restPorps}>{children}</Submit>;
 };
 
 Form.Text = function FormText({ children, ...restPorps }) {
-  <Text {...restPorps}>{children}</Text>;
+  return <Text {...restPorps}>{children}</Text>;
 };
 
 Form.SmallText = function FormSmallText({ children, ...restPorps }) {
-  <SmallText {...restPorps}>{children}</SmallText>;
+  return <SmallText {...restPorps}>{children}</SmallText>;
+};
+
+Form.Link = function FormLink({ children, ...restPorps }) {
+  return <Link {...restPorps}>{children}</Link>;
 };
