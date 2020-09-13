@@ -2,8 +2,7 @@ import styled from 'styled-components';
 import { Link } from 'react-router-dom';
 
 export const Background = styled.section`
-  background: url(${({ src }) =>
-      src ? `../images/misc/${src}.jpg` : '../images/misc/home-bg.jpg'})
+  background: url(${({ src }) => src ? `../images/misc/${src}.jpg` : '../images/misc/home-bg.jpg'})
     top left / cover no-repeat;
 
   display: flex;
@@ -40,6 +39,17 @@ export const Logo = styled.img`
   }
 `;
 
+export const Group = styled.div`
+    display: flex;
+    align-items: center;
+`;
+
+export const Text = styled.p`
+    color: white;
+    font-size: 22px;
+    line-height: normal;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.45);
+`;
 export const ButtonLink = styled(Link)`
   text-decoration: none;
   border-radius: 3px;
@@ -58,4 +68,19 @@ export const ButtonLink = styled(Link)`
   &:hover {
     background: #f40612;
   }
+`;
+
+export const Link = styled.p`
+    color: #fff;
+    text-decoration: none;
+    margin-right: 30px;
+    font-weight: ${({ active }) => (active === 'true' ? '700' : 'normal')};
+    cursor: pointer;
+    
+    &:hover {
+        font-weight: bold;
+    }
+    &:last-of-type {
+        margin-right: 0;
+    }
 `;
