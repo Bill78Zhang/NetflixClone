@@ -8,6 +8,7 @@ export function BrowseContainer() {
   const [category, setCategory] = useState('series');
   const [profile, setProfile] = useState({});
   const [loading, setLoading] = useState(true);
+  const [searchItem,setSearchItem] = useState('');
 
   const user = {
     displayName: 'Karal',
@@ -29,6 +30,22 @@ export function BrowseContainer() {
               onClick={() => setCategory('films')}>
               Films
             </Header.NewLink>
+          </Header.Group>
+          <Header.Group>
+            <Header.Search searchItem={searchItem} setSearchItem={setSearchItem} />
+            <Header.Profile>
+                            <Header.Picture src={user.photoURL} />
+                            <Header.Dropdown>
+                                <Header.Group>
+                                    <Header.Picture src={user.photoURL} />
+                                    <Header.Link>{user.displayName}</Header.Link>
+                                </Header.Group>
+                                <Header.Group>
+                                    <Header.Link onClick={() => firebase.auth().signOut()}>
+                                        Sign out</Header.Link>
+                                </Header.Group>
+                            </Header.Dropdown>
+                        </Header.Profile>
           </Header.Group>
         </Header.Frame>
 
