@@ -1,6 +1,7 @@
-import React, { useState, UseContext } from 'react';
+import React, { useState, UseContext, useEffect } from 'react';
 import { FooterContainer } from '../containers/footer';
 import { SelectProfileContainer } from '../containers/profile';
+import { Loading } from '../components';
 import { Header } from '../components';
 
 export function BrowseContainer() {
@@ -13,8 +14,15 @@ export function BrowseContainer() {
     displayName: 'Karal',
     photoURL: 1
   };
+
+  // useEffect(() => {
+  //   setTimeout(() => {
+  //     setLoading(false);
+  //   }, 3000);
+  // }, [user]);
   return profile.displayName ? (
     <>
+      {loading ? <Loading src={user.photoURL} /> : <Loading.ReleaseBody />}
       <Header src='joker1' dontShowOnSmallViewPort>
         <Header.Frame>
           <Header.Group>
