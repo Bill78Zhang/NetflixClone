@@ -1,6 +1,5 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import * as firebase from 'firebase';
 import { GlobalStyles } from './globalStyles';
 import App from './App';
 import FirebaseContext from './context/firebase';
@@ -16,11 +15,11 @@ const config = {
   measurementId: 'G-CCJ3L3CFFV'
 };
 
-const firebaseApp = firebase.intializeApp(config);
+const firebase = window.firebase.initializeApp(config);
 
 ReactDOM.render(
   <>
-    <FirebaseContext.Provider value={firebaseApp}>
+    <FirebaseContext.Provider value={{ firebase: window.firebase }}>
       <GlobalStyles />
       <App />
     </FirebaseContext.Provider>
