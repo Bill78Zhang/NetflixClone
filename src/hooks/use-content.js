@@ -1,14 +1,14 @@
-import React, { useState, useEffct, useContext } from 'react';
+import { useEffect, useState, useContext } from 'react';
 import FirebaseContext from '../context/firebase';
 
 export default function useContent(target) {
-  const { content, setContent } = useState([]);
+  const [content, setContent] = useState([]);
   const { firebase } = useContext(FirebaseContext);
 
   useEffect(() => {
     firebase
       .firestore()
-      .collection()
+      .collection(target)
       .get()
       .then(snapshot => {
         const allContent = snapshot.docs.map(contentObj => ({
