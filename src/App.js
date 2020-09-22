@@ -9,7 +9,7 @@ function App() {
   return (
     <Router>
       <Switch>
-        <Route path='/home'>
+        <Route path='/'>
           <Home />
         </Route>
         <Route path='/signin'>
