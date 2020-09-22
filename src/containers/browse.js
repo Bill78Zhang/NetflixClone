@@ -1,8 +1,9 @@
-import React, { useState, UseContext, useEffect } from 'react';
+import React, { useState, useContext, useEffect } from 'react';
 import { FooterContainer } from '../containers/footer';
 import { SelectProfileContainer } from '../containers/profile';
 import { Loading, Card } from '../components';
 import { Header } from '../components';
+import { Player } from '../components';
 import Fuse from 'fuse.js';
 
 export function BrowseContainer({ slides }) {
@@ -108,7 +109,10 @@ export function BrowseContainer({ slides }) {
               ))}
             </Card.Entities>
             <Card.Feature category={category}>
-              <p>I am the feature!</p>
+              <Player>
+                <Player.Video />
+                <Player.Button />
+              </Player>
             </Card.Feature>
           </Card>
         ))}
