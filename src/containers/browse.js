@@ -3,6 +3,7 @@ import { FooterContainer } from '../containers/footer';
 import { SelectProfileContainer } from '../containers/profile';
 import { Loading, Card } from '../components';
 import { Header } from '../components';
+import Fuse from 'fuse.js';
 
 export function BrowseContainer({ slides }) {
   const [category, setCategory] = useState('series');
@@ -25,6 +26,20 @@ export function BrowseContainer({ slides }) {
   useEffect(() => {
     setSlideRows(slides[category]);
   }, [slides, category]);
+
+  useEffect(() => {
+    const fuse = new Fuse(slideRows, {
+      keys: ['data.description', 'data.title', 'data.genre']
+    });
+
+    const results = fuse.search(searchItem).map(({ item }) => item);
+
+    if (slideRows.length > 0 && searchItem.length > 3 && results.length > 0) {
+      setSlideRows(results);
+    } else {
+      setSlideRows(slides[category]);
+    }
+  }, [searchItem]);
   return profile.displayName ? (
     <>
       {loading ? <Loading src={user.photoURL} /> : <Loading.ReleaseBody />}

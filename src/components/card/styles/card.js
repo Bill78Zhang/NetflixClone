@@ -12,6 +12,8 @@ export const Title = styled.p`
 export const Container = styled.div`
   display: flex;
   flex-direction: column;
+
+  margin: 0 auto;
   margin-bottom: 50px;
   box-sizing: border-box;
 
@@ -119,7 +121,18 @@ export const Image = styled.img`
   margin: 0;
 `;
 
-export const FeatureText = styled.p``;
+export const FeatureText = styled.p`
+  font-size: 18px;
+  color: white;
+  font-weight: ${({ fontWeight }) => {
+    return fontWeight === 'bold' ? 'bold' : 'normal';
+  }};
+  margin: 0;
+
+  @media (max-width: 800px) {
+    line-height: 22px;
+  }
+`;
 
 export const Feature = styled.div`
   display: flex;
