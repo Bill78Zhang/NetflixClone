@@ -4,6 +4,7 @@ import { SelectProfileContainer } from '../containers/profile';
 import { Loading, Card } from '../components';
 import { Header } from '../components';
 import { Player } from '../components';
+import FirebaseContext from '../context/firebase';
 import Fuse from 'fuse.js';
 
 export function BrowseContainer({ slides }) {
@@ -12,6 +13,8 @@ export function BrowseContainer({ slides }) {
   const [loading, setLoading] = useState(true);
   const [searchItem, setSearchItem] = useState('');
   const [slideRows, setSlideRows] = useState([]);
+
+  const { firebase } = useContext(FirebaseContext);
 
   const user = {
     displayName: 'Karal',
@@ -47,7 +50,7 @@ export function BrowseContainer({ slides }) {
       <Header src='joker1' dontShowOnSmallViewPort>
         <Header.Frame>
           <Header.Group>
-            <Header.Logo to='/home' src='/images/misc/logo.svg' alt='Netflix' />
+            <Header.Logo to='/' src='/images/misc/logo.svg' alt='Netflix' />
             <Header.NewLink
               active={category === 'series' ? 'true' : 'false'}
               onClick={() => setCategory('series')}>
@@ -72,7 +75,9 @@ export function BrowseContainer({ slides }) {
                   <Header.NewLink>{user.displayName}</Header.NewLink>
                 </Header.Group>
                 <Header.Group>
-                  <Header.NewLink>Sign out</Header.NewLink>
+                  <Header.NewLink onClick={() => firebase.auth().signOut()}>
+                    Sign out
+                  </Header.NewLink>
                 </Header.Group>
               </Header.Dropdown>
             </Header.Profile>
